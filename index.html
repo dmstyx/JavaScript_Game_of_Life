@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game of Life</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <meta charset="utf-8"/>
+     </head>
+
+    <body>
+        <div class="ui grid">
+            </br>
+
+            <div class="three wide column">
+            </div>
+
+            <div class="ten wide column">
+                <div class="ui container">
+                    <div class="ui vertical segment">
+                        <h1>Javascript Game of Life</h1>
+                        <div class="ui vertical segment">
+                        <p>This is an illustration of Conways Game of life. Implemented using Javascript</p>
+
+                        <p>The Game of Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.
+                        It is a zero-player game, meaning that its evolution is determined by its initial state.
+                        One interacts with the Game of Life by creating an initial configuration and observing how it evolves.</p>
+                        </div>
+                    </div>
+                    </br>
+
+                    <canvas id="game_view" width="1400" height="500"></canvas>
+                    </br>
+                    <button id="seed" class="ui button primary">Seed</button>
+                    <button class="ui button primary">Start</button>
+                    
+                    <div class="ui divider"></div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="three wide column">
+            
+            </div>
+            
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
+
