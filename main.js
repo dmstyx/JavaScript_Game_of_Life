@@ -22,11 +22,54 @@ function frame(){
         .map(()=> Math.floor(Math.random() * 2)));    
 }
 
-const buildFrame = frame();
+let buildFrame = frame();
 
-populateFrame(buildFrame);
+requestAnimationFrame(update);
 
-console.log(buildFrame);
+function update(){
+    buildFrame = nextGen(buildFrame);
+    populateFrame(buildFrame);
+    requestAnimationFrame(update);
+}
+
+
+function nextGen(buildFrame){
+    const nextGen =buildFrame.map(arr => [...arr]);
+
+    for (let col = 0; col < buildFrame.length; col++){
+        for (let row = 0; row < buildFrame[col].length; row++){
+            const pixel = buildFrame[col][row];
+            let numNeighbours = 0;
+            for (let i = -1; i < 2; i++){
+                for (let j = -1; j < 2; j++){
+                    if (i === 0 && j === 0){
+                        continue;
+                    }
+
+                    const x_cell = col + i;
+                    const y_cell = row + j;
+
+                    if (x_cell >= 0 && y_cell >= 0 && x_cell < column && y_cell < rows){
+                        const currentNeighbour = buildFrame[col + i][row + j];
+                        numNeighbours += currentNeighbour;
+                    }
+                    
+                }
+            }
+
+            if (pixel === 1 && numNeighbours < 2){
+                nextGen[col][row] = 0;
+            } else if (pixel === 1 && numNeighbours > 3){
+                nextGen[col][row] = 0;
+            }else if (pixel === 0 && numNeighbours === 3){
+                nextGen[col][row] = 1;
+            }
+        }
+    }
+
+    return nextGen;
+}
+
 
 function populateFrame(buildFrame){
     for (let column = 0; column < buildFrame.length; column++){
@@ -39,5 +82,3 @@ function populateFrame(buildFrame){
         }
     }
 }
-
-functionNextGen
